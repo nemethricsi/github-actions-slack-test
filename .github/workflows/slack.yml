@@ -41,7 +41,7 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Created by:* <${{ github.event.release.author.url }}|${{ github.event.release.author.login }}>"
+                    "text": "*Created by:* <${{ github.event.release.author.html_url }}|${{ github.event.release.author.login }}>"
                   }
                 ]
               }
