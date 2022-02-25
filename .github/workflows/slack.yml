@@ -23,7 +23,7 @@ jobs:
                     "type": "header",
                     "text": {
                       "type": "plain_text",
-                      "text": "0.0.30 🚀",
+                      "text": "{{release.tag_name}} 🚀",
                       "emoji": true
                     }
                   },
