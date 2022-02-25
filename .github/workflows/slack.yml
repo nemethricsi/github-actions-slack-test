@@ -15,63 +15,33 @@ jobs:
         payload: |
           {
             "text": "*New release on @polygence/components*",
-            "attachments": [
+            "blocks": [
               {
-                "color": "#f2c744",
-                "blocks": [
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "New version on @polygence/components",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*0.0.4 :rocket:*"
+                }
+              },
+              {
+                "type": "context",
+                "elements": [
                   {
-                    "type": "header",
-                    "text": {
-                      "type": "plain_text",
-                      "text": "${{ github.event.release.tag_name }} 🚀",
-                      "emoji": true
-                    }
+                    "type": "image",
+                    "image_url": "${{ github.event.release.author.avatar_url }}",
+                    "alt_text": "author"
                   },
                   {
-                    "type": "section",
-                    "fields": [
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Type:*\nPaid Time Off"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Created by:*\n<example.com|Fred Enriquez>"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "section",
-                    "fields": [
-                      {
-                        "type": "mrkdwn",
-                        "text": "*When:*\nAug 10 - Aug 13"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Type:*\nPaid time off"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "section",
-                    "fields": [
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Hours:*\n16.0 (2 days)"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Remaining balance:*\n32.0 hours (4 days)"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "section",
-                    "text": {
-                      "type": "mrkdwn",
-                      "text": "<https://example.com|View request>"
-                    }
+                    "type": "mrkdwn",
+                    "text": "*Created by:* <${{ github.event.release.author.url }}|${{ github.event.release.author.login }}>"
                   }
                 ]
               }
