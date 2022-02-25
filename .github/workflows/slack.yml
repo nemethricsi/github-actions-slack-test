@@ -20,7 +20,7 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "New version on @polygence/components",
+                  "text": "New release | @polygence/components",
                   "emoji": true
                 }
               },
