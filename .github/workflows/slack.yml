@@ -14,6 +14,7 @@ jobs:
       with:
         payload: |
           {
+            "text": "*New release on @polygence/components*",
             "attachments": [
               {
                 "color": "#f2c744",
@@ -22,7 +23,7 @@ jobs:
                     "type": "header",
                     "text": {
                       "type": "plain_text",
-                      "text": "New release 🚀",
+                      "text": "0.0.30 🚀",
                       "emoji": true
                     }
                   },
