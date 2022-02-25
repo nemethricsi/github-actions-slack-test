@@ -1,0 +1,23 @@
+{
+  "name": "github-actions-slack-test",
+  "version": "1.0.0",
+  "description": "github-actions-slack-test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nemethricsi/github-actions-slack-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nemethricsi/github-actions-slack-test/issues"
+  },
+  "homepage": "https://github.com/nemethricsi/github-actions-slack-test#readme",
+  "dependencies": {
+    "dotenv": "^14.0.0"
+  }
+}
