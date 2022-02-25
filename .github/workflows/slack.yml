@@ -1,4 +1,5 @@
-name: slack
+name: Slack
+
 on:
   push:
     branches: [main]
@@ -8,14 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Message to slack
     steps:
-    - name: Send GitHub trigger payload to Slack Workflow Builder
-      id: slack
-        uses: slackapi/slack-github-action@v1.16.0
-        with:
-          payload: |
-            {
-              "text": "Hello from GitHub action!"
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+    - uses: slackapi/slack-github-action@v1.16.0
+      with:
+        payload: |
+          {
+            "text": "Hello from GitHub action!"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
