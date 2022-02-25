@@ -26,10 +26,13 @@ jobs:
               },
               {
                 "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "*0.0.4 :rocket:*"
-                }
+                "fields": [
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*${{ github.event.release.tag_name }} :rocket:*"
+                  },
+                  "text": <${{ github.event.release.author.html_url }}|${{ github.event.release.author.login }}>
+                ]
               },
               {
                 "type": "context",
@@ -41,7 +44,7 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Created by:* <${{ github.event.release.author.html_url }}|${{ github.event.release.author.login }}>"
+                    "text": "*Created by:* <${{ github.event.release.html_url }}|view release>"
                   }
                 ]
               }
