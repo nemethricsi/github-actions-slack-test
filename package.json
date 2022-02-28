@@ -19,6 +19,7 @@
   "homepage": "https://github.com/nemethricsi/github-actions-slack-test#readme",
   "dependencies": {
     "dotenv": "^14.0.0",
-    "slack-github-action": "github:slackapi/slack-github-action"
+    "slack-github-action": "github:slackapi/slack-github-action",
+    "slackify-markdown": "^4.3.1"
   }
 }
