@@ -33,13 +33,6 @@ jobs:
                   }
                 },
                 {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "${{ github.event.release.body }}"
-                  }
-                },
-                {
                   "type": "context",
                   "elements": [
                     {
