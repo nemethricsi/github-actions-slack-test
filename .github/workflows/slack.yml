@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Message to slack
     steps:
+      - name: Slackify the release body
+        id: release_body
+        uses: LoveToKnow/slackify-markdown-action@v1.0.0
+        with:
+          text: ${{ github.event.release.body }}
       - name: slack-send
         uses: slackapi/slack-github-action@v1.18.0
         with:
@@ -30,6 +35,13 @@ jobs:
                   "text": {
                     "type": "mrkdwn",
                     "text": "*${{ github.event.release.tag_name }} :rocket:*"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ steps.release_body.outputs.text }}"
                   }
                 },
                 {
