@@ -49,7 +49,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Created by:* <${{ github.event.release.author.html_url }}|${{ github.event.release.author.login }}> | Why not join <#C02P8SXPT5Y>"
+                      "text": "*Created by:* <${{ github.event.release.author.html_url }}|${{ github.event.release.author.login }}>"
                     }
                   ]
                 }
