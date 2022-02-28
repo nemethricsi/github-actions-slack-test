@@ -26,17 +26,21 @@ jobs:
                 },
                 {
                   "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*0.0.4 :rocket:*"
-                  }
+                  "fields": [
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "*${{ github.event.release.tag_name }} :rocket:*"
+                    },
+                  ]
                 },
                 {
                   "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "${{ github.event.release.body }}"
-                  }
+                  "fields": [
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "${{ github.event.release.body }}"
+                    },
+                  ]
                 },
                 {
                   "type": "context",
@@ -48,12 +52,11 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Created by:* <${{ github.event.release.author.html_url }}|${{ github.event.release.author.login }}>"
+                      "text": "*Created by:* <${{ github.event.release.html_url }}|view release>"
                     }
-                  ]
-                }
-              ]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+                  },
+                ]
+              }
+          env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
