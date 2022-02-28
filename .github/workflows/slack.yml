@@ -2,7 +2,7 @@ name: Slack
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   notify_slack:
@@ -30,6 +30,13 @@ jobs:
                   "text": {
                     "type": "mrkdwn",
                     "text": "*${{ github.event.release.tag_name }} :rocket:*"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": `${{ github.event.release.body }}`
                   }
                 },
                 {
