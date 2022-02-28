@@ -8,9 +8,14 @@ jobs:
   my-slack-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Slackify the release body
+        id: release_body
+        uses: LoveToKnow/slackify-markdown-action@v1.0.0
+        with:
+          text: ${{ github.event.release.body }}
       - uses: homeday-de/slack-release-bot-action@main
         with:
           webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           title: 🚀 v${{ github.event.release.tag_name }}
-          body: This major release means that we are live!
+          body: ${{ steps.release_body.outputs.text }}
           context: Slack release BOT
