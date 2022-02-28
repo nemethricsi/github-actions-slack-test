@@ -9,44 +9,51 @@ jobs:
     runs-on: ubuntu-latest
     name: Message to slack
     steps:
-    - name: slack-send
-      uses: slackapi/slack-github-action@v1.18.0
-      with:
-        payload: |
-          {
-            "text": "*New release on @polygence/components*",
-            "blocks": [
-              {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "New release | @polygence/components",
-                  "emoji": true
-                }
-              },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "*0.0.4 :rocket:*"
-                }
-              },
-              {
-                "type": "context",
-                "elements": [
-                  {
-                    "type": "image",
-                    "image_url": "${{ github.event.release.author.avatar_url }}",
-                    "alt_text": "author"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Created by:* <${{ github.event.release.author.html_url }}|${{ github.event.release.author.login }}>"
+      - name: slack-send
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          payload: |
+            {
+              "text": "*New release on @polygence/components*",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "New release | @polygence/components",
+                    "emoji": true
                   }
-                ]
-              }
-            ]
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*0.0.4 :rocket:*"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ github.event.release.body }}"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "image",
+                      "image_url": "${{ github.event.release.author.avatar_url }}",
+                      "alt_text": "author"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Created by:* <${{ github.event.release.author.html_url }}|${{ github.event.release.author.login }}>"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
